@@ -7,31 +7,40 @@
     <style>
         body { font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; color: #333; max-width: 900px; margin: 0 auto; padding: 20px; background-color: #f4f4f4; }
         .container { background: white; padding: 30px; border-radius: 8px; box-shadow: 0 2px 10px rgba(0,0,0,0.1); }
-        .header { text-align: center; border-bottom: 3px solid #004a99; margin-bottom: 25px; padding-bottom: 10px; }
-        .logo-placeholder { font-weight: bold; font-size: 28px; color: #004a99; }
-        .dept { font-size: 14px; font-weight: bold; color: #555; text-transform: uppercase; margin-top: 5px; }
+        
+        /* Encabezado con logo a la izquierda */
+        .header { display: flex; align-items: center; border-bottom: 3px solid #004a99; margin-bottom: 25px; padding-bottom: 15px; }
+        .logo-im { height: 80px; margin-right: 20px; }
+        .header-text { text-align: left; }
+        .im-title { font-weight: bold; font-size: 24px; color: #004a99; text-transform: uppercase; margin: 0; }
+        .dept { font-size: 14px; font-weight: bold; color: #555; text-transform: uppercase; margin-top: 2px; }
+        .unidad { font-size: 13px; color: #666; margin: 0; }
+
         .info-box { background: #fdfdfd; border: 1px solid #ddd; padding: 15px; margin-bottom: 20px; font-size: 14px; }
         .filter-section { margin-bottom: 30px; }
         label { display: block; font-weight: bold; margin-bottom: 8px; color: #004a99; }
-        select { width: 100%; padding: 12px; border: 2px solid #004a99; border-radius: 4px; font-size: 16px; background-color: white; }
+        select { width: 100%; padding: 12px; border: 2px solid #004a99; border-radius: 4px; font-size: 16px; }
         .card { display: none; border: 1px solid #b6d4fe; background-color: #f0f7ff; padding: 20px; border-radius: 6px; }
         .card h3 { margin-top: 0; color: #004a99; border-bottom: 1px solid #b6d4fe; padding-bottom: 5px; }
-        .obs { font-size: 13px; color: #666; margin-top: 15px; font-style: italic; }
         .stop-list { font-size: 12px; background: #eee; padding: 10px; border-radius: 4px; margin-top: 10px; }
-        footer { text-align: center; font-size: 12px; color: #888; margin-top: 40px; line-height: 1.5; }
+        footer { text-align: center; font-size: 12px; color: #888; margin-top: 40px; border-top: 1px solid #eee; padding-top: 15px; }
     </style>
 </head>
 <body>
 
 <div class="container">
     <div class="header">
-        <div class="logo-placeholder">M Montevideo</div>
-        <div class="dept">Departamento de Movilidad - División Transporte</div>
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d6/Intendencia_de_Montevideo_logo.svg/512px-Intendencia_de_Montevideo_logo.svg.png" alt="Logo IM" class="logo-im">
+        <div class="header-text">
+            <h1 class="im-title">Intendencia de Montevideo</h1>
+            <div class="dept">Departamento de Movilidad - División Transporte</div>
+            <p class="unidad">Unidad de Programación del Transporte Urbano</p>
+        </div>
     </div>
 
     <div class="info-box">
-        <strong>MOTIVO:</strong> MARCHA DEL SILENCIO <br>
-        <strong>FECHA:</strong> Miércoles 20 de mayo de 2026 <br>
+        <strong>MOTIVO:</strong> MARCHA DEL SILENCIO [cite: 6]<br>
+        <strong>FECHA:</strong> Miércoles 20 de mayo de 2026 [cite: 6]<br>
         <strong>PARTIDA:</strong> 19:00 h desde Jackson y Guayabos hacia Plaza Cagancha [cite: 6, 12]
     </div>
 
@@ -49,7 +58,7 @@
             <option value="104_117_in">104, 117 (por Jackson entrada)</option>
             <option value="104_117_out">104, 117 (hacia afuera)</option>
             <option value="128_199_in">128, 199 (por Jackson entrada)</option>
-            <option value="128_199_poc">128, 199 (Pocitos / Pta. Carretas)</option>
+            <option value="128_199_poc">128, 199 (hacia Pocitos / Pta. Carretas)</option>
             <option value="17_137_col">17, 137, 409, 582 (al Centro/Norte)</option>
             <option value="17_137_poc">17, 137, 409 (hacia Pocitos)</option>
             <option value="141_427">141, 144, 427</option>
@@ -59,24 +68,19 @@
     <div id="detalleDesvio" class="card">
         <h3 id="tituloLinea"></h3>
         <p><strong>Recorrido alternativo:</strong><br><span id="rutaTexto"></span></p>
-        <div id="horarioNota" style="font-weight: bold; color: #d93025; margin-bottom: 10px;"></div>
+        <div id="horarioNota" style="font-weight: bold; color: #d93025;"></div>
     </div>
 
     <div class="info-box" style="margin-top:20px;">
-        <strong>PARADAS SUPRIMIDAS:</strong>
+        <strong>PARADAS SUPRIMIDAS (Av. 18 de Julio):</strong> [cite: 12]
         <div class="stop-list">
-            Av. 18 de Julio (Paraguay, Pza. Cagancha, Yaguarón, Ejido, Yi, Río Negro, Convención, Andes, Barrios Amorín, Vázquez, Tacuarembó, Magallanes, Gaboto, Eduardo Acevedo, Pablo de María, Minas). También paradas en Yaguarón esq. 18 de Julio, Ejido esq. Colonia y Minas esq. Colonia. 
+            Paraguay, Pza. Cagancha, Yaguarón, Ejido, Yi, Río Negro, Convención, Andes, Barrios Amorín, Vázquez, Tacuarembó, Magallanes, Gaboto, Eduardo Acevedo, Pablo de María, Minas. [cite: 12]
         </div>
     </div>
 
-    <div class="obs">
-        * Las vías se irán habilitando a medida que la marcha avance. 
-    </div>
-
     <footer>
-        Unidad de Programación del Transporte Urbano [cite: 13]<br>
-        Edificio Anexo Soriano 1426. Piso 5. CP 11200 [cite: 14]<br>
-        Tel: (5982) 1950 8702 / 8712 | stc@imm.gub.uy [cite: 14]
+        Edificio Anexo Soriano 1426. Piso 5 CP. 11200. Montevideo, Uruguay [cite: 7, 14]<br>
+        Tel: (5982) 1950 8702/8712 | stc@imm.gub.uy [cite: 7, 14]
     </footer>
 </div>
 
@@ -89,20 +93,20 @@ function mostrarDesvio() {
     const horario = document.getElementById('horarioNota');
 
     const base = {
-        "centro_1": ["Líneas 100, 102, 103, 105, 109, 110, 113, D8", "Colonia, Fernández Crespo, Av. Uruguay a ruta.", ""],
-        "centro_2": ["Líneas 21, 180, 187, 188, D9, D10, CE1", "18 de Julio, Beisso, Colonia, Fernández Crespo, Av. Uruguay.", ""],
-        "afuera_8": ["Hacia Av. 8 de Octubre", "San José, Río Branco, Mercedes, Martín C. Martínez/Juan Paullier, Av. 18 de Julio a ruta.", ""],
-        "afuera_rivera": ["Hacia Av. Italia/Av. Rivera", "San José, A. Lanza, Maldonado, Barrios Amorín, Constituyente, Pablo de María, Av. 18 de Julio a ruta.", ""],
-        "g_60": ["Líneas G, D11, 60, 62, 142", "Rivera, J. Requena, Colonia a ruta.", "Desde las 18:00 h"],
-        "149_522_leg": ["149, 522 (P. Legislativo)", "Ejido, Soriano, Paraguay, Mercedes, Ejido a ruta.", "Desde las 17:00 h"],
-        "149_522_poc": ["149, 522 (Pocitos)", "Yaguarón, Av. Uruguay, Libertador, Río Negro, Maldonado, Aquiles Lanza a ruta.", "Desde las 17:00 h"],
-        "104_117_in": ["104, 117 (entrada)", "Jackson, Constituyente, Canelones, Wilson Ferreira, Aldunate.", "Desde las 18:00 h"],
-        "104_117_out": ["104, 117 (salida)", "18 de Julio, Río Negro, San José, A. Lanza, Maldonado, Eduardo Acevedo a ruta.", ""],
-        "128_199_in": ["128, 199 (entrada)", "Jackson, Canelones, Requena, Colonia, F. Crespo a ruta.", "Desde las 18:00 h"],
-        "128_199_poc": ["128, 199 (Pocitos/Pta. Carretas)", "Arenal Grande, E. Victor Haedo, J. Paullier, Maldonado, E. Acevedo a ruta.", "Desde las 19:00 h"],
-        "17_137_col": ["17, 137, 409, 582", "Rodó, Requena, Colonia a ruta.", "Desde las 19:00 h (al paso de la marcha)"],
-        "17_137_poc": ["17, 137, 409", "Arenal Grande, E. Victor Haedo, J. Paullier, Maldonado, Canelones, Minas a ruta.", "Desde las 19:00 h (al paso de la marcha)"],
-        "141_427": ["141, 144, 427", "Rivera, Salterain, Canelones, Bv. España, Maldonado, Minas, Soriano a ruta.", ""]
+        "centro_1": ["Líneas 100, 102, 103, 105, 109, 110, 113, D8", "Colonia, Fernández Crespo, Av. Uruguay a ruta. [cite: 6]", ""],
+        "centro_2": ["Líneas 21, 180, 187, 188, D9, D10, CE1", "18 de Julio, Beisso, Colonia, Fernández Crespo, Av. Uruguay. [cite: 6]", ""],
+        "afuera_8": ["Hacia Av. 8 de Octubre", "San José, Río Branco, Mercedes, Martín C. Martínez/Juan Paullier, Av. 18 de Julio a ruta. [cite: 6]", ""],
+        "afuera_rivera": ["Hacia Av. Italia/Av. Rivera", "San José, A. Lanza, Maldonado, Barrios Amorín, Constituyente, Pablo de María, Av. 18 de Julio a ruta. [cite: 6]", ""],
+        "g_60": ["Líneas G, D11, 60, 62, 142", "Rivera, J. Requena, Colonia a ruta. [cite: 6]", "Desde las 18:00 h [cite: 6]"],
+        "149_522_leg": ["149, 522 (P. Legislativo)", "Ejido, Soriano, Paraguay, Mercedes, Ejido a ruta. [cite: 6]", "Desde las 17:00 h [cite: 6]"],
+        "149_522_poc": ["149, 522 (Pocitos)", "Yaguarón, Av. Uruguay, Libertador, Río Negro, Maldonado, Aquiles Lanza a ruta. [cite: 6]", "Desde las 17:00 h [cite: 6]"],
+        "104_117_in": ["104, 117 (entrada)", "Jackson, Constituyente, Canelones, Wilson Ferreira, Aldunate. [cite: 6]", "Desde las 18:00 h [cite: 6]"],
+        "104_117_out": ["104, 117 (salida)", "18 de Julio, Río Negro, San José, A. Lanza, Maldonado, Eduardo Acevedo a ruta. [cite: 6]", ""],
+        "128_199_in": ["128, 199 (entrada)", "Jackson, Canelones, Requena, Colonia, F. Crespo a ruta. [cite: 6]", "Desde las 18:00 h [cite: 6]"],
+        "128_199_poc": ["128, 199 (Pocitos/Pta. Carretas)", "Arenal Grande, E. Victor Haedo, J. Paullier, Maldonado, E. Acevedo a ruta. [cite: 12]", "Desde las 19:00 h [cite: 12]"],
+        "17_137_col": ["17, 137, 409, 582", "Rodó, Requena, Colonia a ruta. [cite: 12]", "Desde las 19:00 h (al paso de la marcha) [cite: 12]"],
+        "17_137_poc": ["17, 137, 409", "Arenal Grande, E. Victor Haedo, J. Paullier, Maldonado, Canelones, Minas a ruta. [cite: 12]", "Desde las 19:00 h (al paso de la marcha) [cite: 12]"],
+        "141_427": ["141, 144, 427", "Rivera, Salterain, Canelones, Bv. España, Maldonado, Minas, Soriano a ruta. [cite: 12]", ""]
     };
 
     if(val) {
