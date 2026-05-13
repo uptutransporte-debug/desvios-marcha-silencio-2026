@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Desvíos Marcha del Silencio 2026 - IM</title>
+    <style>
+        body { font-family: Arial, sans-serif; line-height: 1.6; color: #333; max-width: 800px; margin: 20px auto; padding: 20px; border: 1px solid #ddd; border-radius: 8px; }
+        .header { text-align: center; border-bottom: 2px solid #004a99; padding-bottom: 10px; margin-bottom: 20px; }
+        .logo { font-weight: bold; font-size: 24px; color: #004a99; text-transform: uppercase; }
+        .subtitle { font-size: 14px; color: #666; }
+        .marcha-info { background: #f9f9f9; padding: 15px; border-left: 5px solid #000; margin-bottom: 20px; }
+        select { width: 100%; padding: 12px; font-size: 16px; border-radius: 5px; border: 1px solid #ccc; margin-bottom: 20px; }
+        .result { display: none; background: #eef6ff; padding: 20px; border-radius: 5px; border: 1px solid #b6d4fe; }
+        .tag { font-weight: bold; color: #004a99; }
+        .footer { margin-top: 30px; font-size: 12px; text-align: center; color: #888; border-top: 1px solid #eee; padding-top: 10px; }
+    </style>
+</head>
+<body>
+
+<div class="header">
+    <div class="logo">Intendencia de Montevideo</div>
+    <div class="subtitle">DEPARTAMENTO DE MOVILIDAD | DIVISIÓN TRANSPORTE</div>
+</div>
+
+<div class="marcha-info">
+    <strong>Evento:</strong> Marcha del Silencio <br>
+    <strong>Fecha:</strong> Miércoles 20 de mayo de 2026 <br>
+    <strong>Tramo afectado:</strong> Av. 18 de Julio (Arenal Grande hasta Río Negro) <br>
+    <strong>Inicio de desvíos:</strong> A partir de las 17:00 h (Cortes progresivos) 
+</div>
+
+<label for="busLines" class="tag">Seleccione su línea de ómnibus:</label>
+<select id="busLines" onchange="showRoute()">
+    <option value="">-- Seleccione una línea --</option>
+    <option value="centro1">100, 102, 103, 105, 109, 110, 113, D8 (al Centro)</option>
+    <option value="centro2">21, 180, 187, 188, D9, D10, CE1 (al Centro)</option>
+    <option value="afuera8">Líneas por 18 de Julio (hacia 8 de Octubre)</option>
+    <option value="afueraRivera">Líneas por 18 de Julio (hacia Av. Italia / Rivera)</option>
+    <option value="ejido">149, 522 (hacia P. Legislativo)</option>
+    <option value="yaguaron">149, 522 (hacia Pocitos)</option>
+    <option value="jackson">104, 117, 128, 199 (por Jackson/Salida)</option>
+</select>
+
+<div id="result" class="result">
+    <h3 id="resTitle"></h3>
+    <p><strong>Desvío:</strong> <span id="resDesvio"></span></p>
+    <p><small>* Las vías se habilitarán a medida que la marcha avance.</small></p>
+</div>
+
+<div class="footer">
+    Unidad de Programación del Transporte Urbano [cite: 3]<br>
+    Edificio Anexo Soriano 1426. Piso 5. Tel: 1950 8702 [cite: 7]
+</div>
+
+<script>
+function showRoute() {
+    const val = document.getElementById('busLines').value;
+    const res = document.getElementById('result');
+    const title = document.getElementById('resTitle');
+    const desvio = document.getElementById('resDesvio');
+
+    const data = {
+        "centro1": ["Líneas al Centro (100, 102, etc.)", "Colonia, Fernández Crespo, Av. Uruguay a ruta "],
+        "centro2": ["Líneas al Centro (21, 180, D9, etc.)", "18 de Julio, Beisso, Colonia, Fernández Crespo, Av. Uruguay "],
+        "afuera8": ["Hacia Av. 8 de Octubre", "San José, Río Branco, Mercedes, Martín C. Martínez/Juan Paullier, Av. 18 de Julio a ruta "],
+        "afueraRivera": ["Hacia Av. Italia/Rivera", "San José, A. Lanza, Maldonado, Barrios Amorín, Constituyente, Pablo de María, Av. 18 de Julio a ruta "],
+        "ejido": ["149, 522 (P. Legislativo)", "Desde 17:00h: Ejido, Soriano, Paraguay, Mercedes, Ejido a ruta "],
+        "yaguaron": ["149, 522 (Pocitos)", "Desde 17:00h: Yaguarón, Av. Uruguay, Libertador, Río Negro, Maldonado, Aquiles Lanza a ruta "],
+        "jackson": ["Líneas por Jackson", "Desde 18:00h: Jackson, Constituyente, Canelones, Wilson Ferreira, Aldunate "]
+    };
+
+    if(val) {
+        res.style.display = 'block';
+        title.innerText = data[val][0];
+        desvio.innerText = data[val][1];
+    } else {
+        res.style.display = 'none';
+    }
+}
+</script>
+</body>
+</html>
