@@ -40,9 +40,9 @@
     <div class="info-box">
         <strong>MOTIVO:</strong> MARCHA DEL SILENCIO<br>
         <strong>FECHA:</strong> Miércoles 20 de mayo de 2026<br>
-        <strong>HORARIOS:</strong><br>
-        - 17:00 h: Corte de Av. 18 de Julio entre Barrios Amorín y Río Negro.<br>
-        - 18:00 h: Corte total del recorrido y corte de Jackson esq. Guayabos.<br>
+        <strong>HORARIOS APROXIMADOS:</strong><br>
+        - 17:00 h: Corte de Av. 18 de Julio entre Barrios Amorín y Río Negro e intersecciones de Ejido y Aquiles Lanza.<br>
+        - 18:00 h: Corte total del recorrido y corte de J. J. Jackson esq. Guayabos.<br>
         - 19:00 h: Partida de la marcha desde Jackson y Guayabos hacia Plaza Cagancha.
     </div>
 
@@ -59,7 +59,7 @@
             <option value="149_522_poc">149, 522 (hacia Pocitos)</option>
             <option value="104_117_in">104, 117 (por Jackson - Entrada)</option>
             <option value="104_117_out">104, 117 (hacia afuera)</option>
-            <option value="128_199_in">128, 199 (por Jackson - Entrada)</option>
+            <option value="128_199_in">128, 199 (entrada por Jackson)</option>
             <option value="128_199_poc">128, 199 (hacia Pocitos / Pta. Carretas)</option>
             <option value="17_137_col">17, 137, 409, 582 (al Centro/Norte)</option>
             <option value="17_137_poc">17, 137, 409 (hacia Pocitos)</option>
@@ -89,7 +89,6 @@
     </div>
 
     <footer>
-        <strong>Unidad de Programación del Transporte Urbano</strong><br>
         Edificio Anexo Soriano 1426. Piso 5 CP. 11200. Montevideo, Uruguay<br>
         Tel: (5982) 1950 8702 / 8712 | stc@imm.gub.uy
     </footer>
@@ -104,20 +103,20 @@ function mostrarDesvio() {
     const horario = document.getElementById('horarioNota');
 
     const base = {
-        "centro_1": ["Líneas 100, 102, 103, 105, 109, 110, 113, D8", "Colonia, Fernández Crespo, Av. Uruguay a ruta.", ""],
-        "centro_2": ["Líneas 21, 180, 187, 188, D9, D10, CE1", "18 de Julio, Beisso, Colonia, Fernández Crespo, Av. Uruguay.", ""],
+        "centro_1": ["Líneas 100, 102, 103, 105, 109, 110, 113, D8 (al Centro)", "Colonia, Fernández Crespo, Av. Uruguay a ruta.", ""],
+        "centro_2": ["Líneas 21, 180, 187, 188, D9, D10, CE1 (al Centro)", "18 de Julio, Beisso, Colonia, Fernández Crespo, Av. Uruguay.", ""],
         "afuera_8": ["Hacia Av. 8 de Octubre", "San José, Río Branco, Mercedes, Martín C. Martínez/Juan Paullier, Av. 18 de Julio a ruta.", ""],
         "afuera_rivera": ["Hacia Av. Italia/Av. Rivera", "San José, Aquiles Lanza, Maldonado, Barrios Amorín, Constituyente, Pablo de María, Av. 18 de Julio a ruta.", ""],
-        "g_60": ["Líneas G, D11, 60, 62, 142", "Rivera, J. Requena, Colonia, J. H. y Obes, Av. 18 de Julio a ruta.", "Desde las 18:00 h"],
-        "149_522_leg": ["149, 522 (P. Legislativo)", "Ejido, Soriano, Paraguay, Mercedes, Ejido a ruta.", "Desde las 17:00 h"],
-        "149_522_poc": ["149, 522 (Pocitos)", "Yaguarón, Av. Uruguay, Libertador, Río Negro, Maldonado, Aquiles Lanza a ruta.", "Desde las 17:00 h"],
-        "104_117_in": ["104, 117 (entrada)", "Jackson, Constituyente, Canelones, Wilson Ferreira, Aldunate.", "Desde las 18:00 h"],
+        "g_60": ["Líneas G, D11, 60, 62, 142", "Rivera, J. Requena, Colonia, J. H. y Obes, Av. 18 de Julio a ruta.", "Hora 18:00"],
+        "149_522_leg": ["149, 522 (hacia P. Legislativo)", "Ejido, Soriano, Paraguay, Mercedes, Ejido a ruta.", "Hora 17:00"],
+        "149_522_poc": ["149, 522 (hacia Pocitos)", "Yaguarón, Av. Uruguay, Libertador, Río Negro, Maldonado, Aquiles Lanza a ruta.", "Hora 17:00"],
+        "104_117_in": ["104, 117 (entrada por Jackson)", "Jackson, Constituyente, Canelones, Wilson Ferreira, Aldunate.", "Hora 18:00"],
         "104_117_out": ["104, 117 (salida)", "18 de Julio, Río Negro, San José, Aquiles Lanza, Maldonado, Eduardo Acevedo a ruta.", ""],
-        "128_199_in": ["128, 199 (entrada)", "Jackson, Canelones, Requena, Colonia, F. Crespo a ruta.", "Desde las 18:00 h"],
-        "128_199_poc": ["128, 199 (Pocitos / Pta. Carretas)", "Arenal Grande, E. Victor Haedo, J. Paullier, Maldonado, E. Acevedo a ruta.", "Desde las 19:00 h"],
-        "17_137_col": ["17, 137, 409, 582", "Rodó, Requena, Colonia a ruta.", "Desde las 19:00 h (al paso de la marcha)"],
-        "17_137_poc": ["17, 137, 409", "Arenal Grande, E. Victor Haedo, J. Paullier, Maldonado, Canelones, Minas a ruta.", "Desde las 19:00 h (al paso de la marcha)"],
-        "141_427": ["141, 144, 427", "Rivera, Salterain, Canelones, Bv. España, Maldonado, Minas, Soriano a ruta.", ""]
+        "128_199_in": ["128, 199 (entrada por Jackson)", "Jackson, Canelones, Requena, Colonia, F. Crespo a ruta.", "Hora 18:00"],
+        "128_199_poc": ["128, 199 (Pocitos / Pta. Carretas)", "Arenal Grande, E. Victor Haedo, J. Paullier, Maldonado, E. Acevedo a ruta.", "Hora 19:00"],
+        "17_137_col": ["17, 137, 409, 582", "Rodó, Requena, Colonia a ruta.", "Hora 19:00 (al paso de la marcha)"],
+        "17_137_poc": ["17, 137, 409", "Arenal Grande, E. Victor Haedo, J. Paullier, Maldonado, Canelones, Minas a ruta.", "Hora 19:00 (al paso de la marcha)"],
+        "141_427": ["141, 144, 427", "Rivera, Salterain, Bv. España, Canelones, Minas, Soriano a ruta.", "Hora 19:00 (al paso de la marcha)"]
     };
 
     if(val) {
