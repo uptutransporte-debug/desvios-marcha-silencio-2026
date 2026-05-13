@@ -8,26 +8,23 @@
         body { font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; color: #333; max-width: 900px; margin: 0 auto; padding: 20px; background-color: #f4f4f4; }
         .container { background: white; padding: 30px; border-radius: 8px; box-shadow: 0 2px 10px rgba(0,0,0,0.1); }
         
-        /* Encabezado con logo real a la izquierda */
+        /* Encabezado con logo real */
         .header { display: flex; align-items: center; border-bottom: 3px solid #004a99; margin-bottom: 25px; padding-bottom: 15px; }
-        .logo-im { height: 85px; margin-right: 25px; }
+        .logo-im { height: 80px; margin-right: 25px; }
         .header-text { text-align: left; }
-        .im-title { font-weight: bold; font-size: 26px; color: #004a99; text-transform: uppercase; margin: 0; letter-spacing: -0.5px; }
+        .im-title { font-weight: bold; font-size: 26px; color: #004a99; text-transform: uppercase; margin: 0; }
         .dept { font-size: 15px; font-weight: bold; color: #444; text-transform: uppercase; margin-top: 2px; }
         .unidad { font-size: 14px; color: #666; margin: 0; }
 
         .info-box { background: #fdfdfd; border: 1px solid #ddd; padding: 15px; margin-bottom: 20px; font-size: 14px; border-left: 5px solid #004a99; }
-        .filter-section { margin-bottom: 30px; }
         label { display: block; font-weight: bold; margin-bottom: 10px; color: #004a99; }
         select { width: 100%; padding: 14px; border: 2px solid #004a99; border-radius: 6px; font-size: 16px; background-color: #fff; cursor: pointer; }
         
         .card { display: none; border: 1px solid #b6d4fe; background-color: #f0f7ff; padding: 20px; border-radius: 8px; margin-top: 10px; }
         .card h3 { margin-top: 0; color: #004a99; border-bottom: 1px solid #b6d4fe; padding-bottom: 8px; font-size: 18px; }
-        .route-detail { font-size: 16px; line-height: 1.5; margin: 10px 0; }
-        .time-alert { font-weight: bold; color: #d93025; background: #ffebeb; padding: 8px; border-radius: 4px; display: inline-block; margin-top: 5px; }
+        .time-alert { font-weight: bold; color: #d93025; background: #ffebeb; padding: 8px; border-radius: 4px; display: inline-block; margin-top: 10px; }
         
         .stop-section { margin-top: 25px; border-top: 1px solid #eee; padding-top: 20px; }
-        .stop-title { font-weight: bold; color: #555; margin-bottom: 10px; display: block; }
         .stop-list { font-size: 13px; background: #f8f8f8; padding: 12px; border-radius: 6px; color: #444; border: 1px inset #eee; }
         
         footer { text-align: center; font-size: 12px; color: #777; margin-top: 50px; border-top: 1px solid #eee; padding-top: 20px; line-height: 1.6; }
@@ -37,7 +34,7 @@
 
 <div class="container">
     <div class="header">
-        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d6/Intendencia_de_Montevideo_logo.svg/512px-Intendencia_de_Montevideo_logo.svg.png" alt="Logo Intendencia de Montevideo" class="logo-im">
+        <img src="https://admin.montevideo.gub.uy/sites/default/files/styles/noticia_cabezal/public/escudo-de-montevideo-2-01_1.png" alt="Logo Intendencia" class="logo-im">
         <div class="header-text">
             <h1 class="im-title">Intendencia de Montevideo</h1>
             <div class="dept">Departamento de Movilidad - División Transporte</div>
@@ -46,15 +43,15 @@
     </div>
 
     <div class="info-box">
-        <strong>MOTIVO:</strong> MARCHA DEL SILENCIO [cite: 6]<br>
-        <strong>FECHA:</strong> Miércoles 20 de mayo de 2026 [cite: 6]<br>
-        <strong>DETALLES:</strong> Partida hora 19:00 desde Jackson y Guayabos[cite: 6, 12].
+        <strong>MOTIVO:</strong> MARCHA DEL SILENCIO<br>
+        <strong>FECHA:</strong> Miércoles 20 de mayo de 2026<br>
+        <strong>HORARIOS:</strong> 17:00 h Corte parcial | 18:00 h Corte total | 19:00 h Partida de la marcha
     </div>
 
-    <div class="filter-section">
+    <div style="margin-bottom: 30px;">
         <label for="lineaSelect">BUSCAR DESVÍO POR LÍNEA:</label>
         <select id="lineaSelect" onchange="mostrarDesvio()">
-            <option value="">-- Seleccione su línea o recorrido --</option>
+            <option value="">-- Seleccione una línea --</option>
             <option value="centro_1">100, 102, 103, 105, 109, 110, 113, D8 (al Centro)</option>
             <option value="centro_2">21, 180, 187, 188, D9, D10, CE1 (al Centro)</option>
             <option value="afuera_8">Líneas por 18 de Julio (hacia 8 de Octubre)</option>
@@ -62,9 +59,9 @@
             <option value="g_60">G, D11, 60, 62, 142</option>
             <option value="149_522_leg">149, 522 (hacia P. Legislativo)</option>
             <option value="149_522_poc">149, 522 (hacia Pocitos)</option>
-            <option value="104_117_in">104, 117 (por Jackson - Entrada)</option>
+            <option value="104_117_in">104, 117 (entrada por Jackson)</option>
             <option value="104_117_out">104, 117 (hacia afuera)</option>
-            <option value="128_199_in">128, 199 (por Jackson - Entrada)</option>
+            <option value="128_199_in">128, 199 (entrada por Jackson)</option>
             <option value="128_199_poc">128, 199 (Pocitos / Pta. Carretas)</option>
             <option value="17_137_col">17, 137, 409, 582 (al Centro/Norte)</option>
             <option value="17_137_poc">17, 137, 409 (hacia Pocitos)</option>
@@ -74,24 +71,21 @@
 
     <div id="detalleDesvio" class="card">
         <h3 id="tituloLinea"></h3>
-        <div class="route-detail">
-            <strong>Recorrido alternativo:</strong><br>
-            <span id="rutaTexto"></span>
-        </div>
+        <p><strong>Recorrido alternativo:</strong></p>
+        <p id="rutaTexto"></p>
         <div id="horarioNota" class="time-alert"></div>
     </div>
 
     <div class="stop-section">
-        <span class="stop-title">PARADAS OFICIALES SUPRIMIDAS (Av. 18 de Julio):</span>
+        <strong>PARADAS SUPRIMIDAS (Av. 18 de Julio):</strong>
         <div class="stop-list">
-            Paraguay, Pza. Cagancha, Yaguarón, Ejido, Yi, Río Negro, Convención, Andes, Barrios Amorín, Vázquez, Tacuarembó, Magallanes, Gaboto, Ed. Acevedo, Pablo de María, Minas[cite: 12].
+            Paraguay, Pza. Cagancha, Yaguarón, Ejido, Yi, Río Negro, Convención, Andes, Barrios Amorín, Vázquez, Tacuarembó, Magallanes, Gaboto, Ed. Acevedo, Pablo de María, Minas.
         </div>
     </div>
 
     <footer>
-        <strong>Unidad de Programación del Transporte Urbano</strong><br>
-        Edificio Anexo Soriano 1426. Piso 5 CP. 11200. Montevideo, Uruguay [cite: 7, 14, 18]<br>
-        Tel: (5982) 1950 8702 / 8712 | stc@imm.gub.uy [cite: 7, 14, 19]
+        Edificio Anexo Soriano 1426. Piso 5 CP. 11200. Montevideo, Uruguay<br>
+        Tel: (5982) 1950 8702 / 8712 | stc@imm.gub.uy
     </footer>
 </div>
 
@@ -104,26 +98,26 @@ function mostrarDesvio() {
     const horario = document.getElementById('horarioNota');
 
     const base = {
-        "centro_1": ["Líneas 100, 102, 103, 105, 109, 110, 113, D8 (al Centro)", "Colonia, Fernández Crespo, Av. Uruguay a ruta[cite: 6].", ""],
-        "centro_2": ["Líneas 21, 180, 187, 188, D9, D10, CE1 (al Centro)", "18 de Julio, Beisso, Colonia, Fernández Crespo, Av. Uruguay[cite: 6].", ""],
-        "afuera_8": ["Hacia Av. 8 de Octubre", "San José, Río Branco, Mercedes, Martín C. Martínez/Juan Paullier, Av. 18 de Julio a ruta[cite: 6].", ""],
-        "afuera_rivera": ["Hacia Av. Italia/Av. Rivera", "San José, Aquiles Lanza, Maldonado, Barrios Amorín, Constituyente, Pablo de María, Av. 18 de Julio a ruta[cite: 6].", ""],
-        "g_60": ["Líneas G, D11, 60, 62, 142", "Rivera, J. Requena, Colonia a ruta [cite: 6].", "Desde las 18:00 h [cite: 6]"],
-        "149_522_leg": ["149, 522 (hacia P. Legislativo)", "Ejido, Soriano, Paraguay, Mercedes, Ejido a ruta [cite: 6].", "Desde las 17:00 h [cite: 6]"],
-        "149_522_poc": ["149, 522 (hacia Pocitos)", "Yaguarón, Av. Uruguay, Libertador, Río Negro, Maldonado, Aquiles Lanza a ruta [cite: 6].", "Desde las 17:00 h [cite: 6]"],
-        "104_117_in": ["104, 117 (entrada por Jackson)", "Jackson, Constituyente, Canelones, Wilson Ferreira, Aldunate [cite: 6].", "Desde las 18:00 h [cite: 6]"],
-        "104_117_out": ["104, 117 (salida hacia afuera)", "18 de Julio, Río Negro, San José, Aquiles Lanza, Maldonado, Eduardo Acevedo a ruta[cite: 6].", ""],
-        "128_199_in": ["128, 199 (entrada por Jackson)", "Jackson, Canelones, Requena, Colonia, F. Crespo a ruta [cite: 6].", "Desde las 18:00 h [cite: 6]"],
-        "128_199_poc": ["128, 199 (Pocitos / Pta. Carretas)", "Arenal Grande, E. Victor Haedo, J. Paullier, Maldonado, E. Acevedo a ruta [cite: 12].", "Desde las 19:00 h [cite: 12]"],
-        "17_137_col": ["17, 137, 409, 582", "Rodó, Requena, Colonia a ruta [cite: 12].", "Desde las 19:00 h (al paso de la marcha) [cite: 12]"],
-        "17_137_poc": ["17, 137, 409", "Arenal Grande, E. Victor Haedo, J. Paullier, Maldonado, Canelones, Minas a ruta [cite: 12].", "Desde las 19:00 h (al paso de la marcha) [cite: 12]"],
-        "141_427": ["141, 144, 427", "Rivera, Salterain, Canelones, Bv. España, Maldonado, Minas, Soriano a ruta[cite: 12].", ""]
+        "centro_1": ["Líneas 100 al 113 y D8", "Colonia, Fernández Crespo, Av. Uruguay a ruta.", "A partir de las 17:00 h"],
+        "centro_2": ["Líneas 21, 180, 187, 188, D9, D10, CE1", "18 de Julio, Beisso, Colonia, Fernández Crespo, Av. Uruguay.", "A partir de las 17:00 h"],
+        "afuera_8": ["Hacia Av. 8 de Octubre", "San José, Río Branco, Mercedes, Martín C. Martínez/Juan Paullier, Av. 18 de Julio a ruta.", ""],
+        "afuera_rivera": ["Hacia Av. Italia/Av. Rivera", "San José, Aquiles Lanza, Maldonado, Barrios Amorín, Constituyente, Pablo de María, Av. 18 de Julio a ruta.", ""],
+        "g_60": ["Líneas G, D11, 60, 62, 142", "Rivera, J. Requena, Colonia a ruta.", "Desde las 18:00 h"],
+        "149_522_leg": ["149, 522 (P. Legislativo)", "Ejido, Soriano, Paraguay, Mercedes, Ejido a ruta.", "Desde las 17:00 h"],
+        "149_522_poc": ["149, 522 (Pocitos)", "Yaguarón, Av. Uruguay, Libertador, Río Negro, Maldonado, Aquiles Lanza a ruta.", "Desde las 17:00 h"],
+        "104_117_in": ["104, 117 (entrada)", "Jackson, Constituyente, Canelones, Wilson Ferreira, Aldunate.", "Desde las 18:00 h"],
+        "104_117_out": ["104, 117 (salida)", "18 de Julio, Río Negro, San José, Aquiles Lanza, Maldonado, Eduardo Acevedo a ruta.", ""],
+        "128_199_in": ["128, 199 (entrada)", "Jackson, Canelones, Requena, Colonia, F. Crespo a ruta.", "Desde las 18:00 h"],
+        "128_199_poc": ["128, 199 (Pocitos)", "Arenal Grande, E. Victor Haedo, J. Paullier, Maldonado, E. Acevedo a ruta.", "Desde las 19:00 h"],
+        "17_137_col": ["17, 137, 409, 582", "Rodó, Requena, Colonia a ruta.", "Desde las 19:00 h"],
+        "17_137_poc": ["17, 137, 409", "Arenal Grande, E. Victor Haedo, J. Paullier, Maldonado, Canelones, Minas a ruta.", "Desde las 19:00 h"],
+        "141_427": ["141, 144, 427", "Rivera, Salterain, Canelones, Bv. España, Maldonado, Minas, Soriano a ruta.", ""]
     };
 
     if(val) {
         card.style.display = 'block';
         titulo.innerText = base[val][0];
-        ruta.innerHTML = base[val][1];
+        ruta.innerText = base[val][1];
         horario.innerText = base[val][2];
         horario.style.display = base[val][2] ? "inline-block" : "none";
     } else {
