@@ -15,9 +15,9 @@
             color: white;
             box-shadow: 0 2px 4px rgba(0,0,0,0.1);
         }
-        .header h1 { margin: 0; font-size: 20px; text-transform: uppercase; letter-spacing: 1px; font-weight: bold; }
-        .header h2 { margin: 5px 0; font-size: 16px; font-weight: normal; opacity: 0.9; }
-        .header h3 { margin: 0; font-size: 14px; font-weight: bold; opacity: 0.8; }
+        .header h1 { margin: 0; font-size: 18px; text-transform: uppercase; letter-spacing: 1px; font-weight: bold; }
+        .header h2 { margin: 5px 0; font-size: 15px; font-weight: normal; opacity: 0.9; }
+        .header h3 { margin: 0; font-size: 13px; font-weight: bold; opacity: 0.8; }
 
         .container { padding: 15px; max-width: 900px; margin: auto; }
 
@@ -53,37 +53,39 @@
 <body>
 
 <div class="header">
-    <h1>Intendencia de Montevideo</h1>
-    <h2>Departamento de Movilidad</h2>
-    <h3>División Transporte - Unidad de Programación del Transporte Urbano</h3>
+    <h1>INTENDENCIA DE MONTEVIDEO - UPTU</h1>
+    <h2>Departamento de Movilidad - División Transporte</h2>
+    <h3>Unidad de Programación del Transporte Urbano</h3>
 </div>
 
 <div class="container">
     <div class="cortes-card">
-        <h4>OPERATIVO MARCHA DEL SILENCIO (20/05)</h4>
+        <h4>OPERATIVO 20 DE MAYO:</h4>
         <div class="cortes-info">
-            <strong>17:00 hs:</strong> Corte de 18 de Julio (B. Amorín - Río Negro) e intersecciones Ejido y A. Lanza.<br>
-            <strong>18:00 hs:</strong> Corte TOTAL del recorrido y J. J. Jackson esq. Guayabos.<br>
-            <strong>19:00 hs:</strong> Partida de la marcha hacia Plaza Cagancha.
+            <strong>- 17:00:</strong> Corte 18 de Julio (B. Amorín - Río Negro) e intersecciones Ejido y A. Lanza.<br>
+            <strong>- 18:00:</strong> Corte TOTAL y Jackson esq. Guayabos.<br>
+            <strong>- 19:00:</strong> Partida de la Marcha.
         </div>
     </div>
 
     <div class="interactivo-box">
-        <label>Consultar Desvío por Línea:</label>
+        <label>SELECCIONE LÍNEA O DESTINO:</label>
         <select id="lineaSelect" onchange="actualizar()">
-            <option value="">-- Seleccionar Línea --</option>
-            <option value="100">100, 102, 103, 105, 109, 110, 113, D8 (Hacia CENTRO)</option>
-            <option value="21">21, 180, 187, 188, D9, D10, CE1 (Hacia CIUDAD VIEJA)</option>
-            <option value="af_8oct">Líneas Hacia AV. 8 DE OCTUBRE (Afuera)</option>
-            <option value="af_italia">Líneas Hacia AV. ITALIA (Afuera)</option>
-            <option value="af_rivera">Líneas Hacia AV. RIVERA (Afuera)</option>
-            <option value="60">G, D11, 60, 62, 142 (Hacia CENTRO - 18:00 hs)</option>
-            <option value="149l">149, 522 (Hacia P. LEGISLATIVO - 17:00 hs)</option>
-            <option value="149p">149, 522 (Hacia POCITOS - 17:00 hs)</option>
-            <option value="104">104, 117 (Hacia CENTRO / AFUERA)</option>
-            <option value="128">128, 199 (Hacia CENTRO / POCITOS)</option>
-            <option value="17">17, 137, 409, 582 (Hacia CENTRO)</option>
-            <option value="427">141, 144, 427 (Hacia CIUDADELA / UAM)</option>
+            <option value="">-- Seleccionar --</option>
+            <option value="100">100, 102, 103, 105, 109, 110, 113, D8 <b>(Hacia CENTRO)</b></option>
+            <option value="21">21, 180, 187, 188, D9, D10, CE1 <b>(Hacia CIUDAD VIEJA)</b></option>
+            <option value="af_8oct">Líneas <b>Hacia AV. 8 DE OCTUBRE</b> (Afuera)</option>
+            <option value="af_italia">Líneas <b>Hacia AV. ITALIA</b> (Afuera)</option>
+            <option value="af_rivera">Líneas <b>Hacia AV. RIVERA</b> (Afuera)</option>
+            <option value="60">G, D11, 60, 62, 142 <b>(Hacia CENTRO)</b></option>
+            <option value="149l">149, 522 <b>(Hacia P. LEGISLATIVO)</b></option>
+            <option value="149p">149, 522 <b>(Hacia POCITOS)</b></option>
+            <option value="104">104, 117 <b>(Hacia CENTRO / AFUERA)</b></option>
+            <option value="128">128, 199 <b>(Hacia CENTRO / POCITOS)</b></option>
+            <option value="17_137">17, 137 <b>(Hacia CENTRO)</b></option>
+            <option value="409">409 <b>(Hacia CENTRO)</b></option>
+            <option value="582">582 <b>(Hacia CENTRO)</b></option>
+            <option value="427">141, 144, 427 <b>(Hacia CIUDADELA / UAM)</b></option>
         </select>
 
         <div id="resultado">
@@ -93,7 +95,7 @@
     </div>
 
     <div class="paradas-fijas">
-        <h5>Listado de Paradas Provisorias y Suprimidas</h5>
+        <h5>Paradas Provisorias y Suprimidas</h5>
         <div class="grid-paradas">
             <div class="col-parada">
                 <strong>Paradas Provisorias</strong>
@@ -106,9 +108,11 @@
                 • Guayabos y Gaboto.
             </div>
             <div class="col-parada">
-                <strong>Paradas Suprimidas (Eje 18 de Julio)</strong>
-                • 18 de Julio y Paraguay / Pza. Cagancha / Yaguarón / Ejido / Yi / Río Negro / Convención / Andes.<br>
-                • 18 de Julio y Barrios Amorín / Vázquez / Tacuarembó / Magallanes / Minas / Gaboto / Ed. Acevedo / Pablo de María.<br>
+                <strong>Paradas Suprimidas (18 de Julio)</strong>
+                • 18 de Julio y Paraguay / Pza. Cagancha / Yaguarón / Ejido / Yi.<br>
+                • 18 de Julio y Río Negro / Convención / Andes.<br>
+                • 18 de Julio y Barrios Amorín / Vázquez / Tacuarembó.<br>
+                • 18 de Julio y Magallanes / Minas / Gaboto / Ed. Acevedo / Pablo de María.<br>
                 • Yaguarón y 18 de Julio (Líneas 149-522).
             </div>
         </div>
@@ -116,8 +120,8 @@
 </div>
 
 <div class="footer">
-    Montevideo, 14 de Mayo de 2026<br>
-    Unidad de Programación del Transporte Urbano
+    Montevideo, 14 de Mayo de 2026 [cite: 4]<br>
+    Unidad de Programación del Transporte Urbano [cite: 3]
 </div>
 
 <script>
@@ -127,12 +131,14 @@ const data = {
     "af_8oct": { n: "Líneas <b>Hacia AV. 8 DE OCTUBRE</b> (Afuera)", r: "San José, Río Branco, Mercedes, Martín C. Martínez/Juan Paullier, Av. 18 de Julio a ruta." },
     "af_italia": { n: "Líneas <b>Hacia AV. ITALIA</b> (Afuera)", r: "San José, A. Lanza, Maldonado, Barrios Amorín, Constituyente, Pablo de María, Av. 18 de Julio a ruta." },
     "af_rivera": { n: "Líneas <b>Hacia AV. RIVERA</b> (Afuera)", r: "San José, A. Lanza, Maldonado, Barrios Amorín, Constituyente, J. E. Rodó a ruta." },
-    "60": { n: "G, D11, 60, 62, 142 <b>(Hacia CENTRO)</b>", r: "HORA 18:00: Rivera, J. Requena, Colonia, J. H. y Obes, Av. 18 de Julio a ruta." },
-    "149l": { n: "149, 522 <b>(Hacia P. LEGISLATIVO)</b>", r: "HORA 17:00: Ejido, Soriano, Paraguay, Mercedes, Ejido a ruta." },
-    "149p": { n: "149, 522 <b>(Hacia POCITOS)</b>", r: "HORA 17:00: Yaguarón, Av. Uruguay, Libertador, Río Negro, Maldonado, Aquiles Lanza a ruta." },
-    "104": { n: "104, 117 <b>(Hacia CENTRO / AFUERA)</b>", r: "<b>Hacia Centro (18:00 hs):</b> Jackson, Constituyente, Canelones, Wilson Fereira Aldunate. <br><b>Hacia Afuera:</b> 18 de Julio, Río Negro, San José, A. Lanza, Maldonado, Eduardo Acevedo a ruta." },
+    "60": { n: "G, D11, 60, 62, 142 <b>(Hacia CENTRO)</b>", r: "<b>HORA 18:00:</b> Rivera, J. Requena, Colonia, J. H. y Obes, Av. 18 de Julio a ruta." },
+    "149l": { n: "149, 522 <b>(Hacia P. LEGISLATIVO)</b>", r: "<b>HORA 17:00:</b> Ejido, Soriano, Paraguay, Mercedes, Ejido a ruta." },
+    "149p": { n: "149, 522 <b>(Hacia POCITOS)</b>", r: "<b>HORA 17:00:</b> Yaguarón, Av. Uruguay, Libertador, Río Negro, Maldonado, Aquiles Lanza a ruta." },
+    "104": { n: "104, 117 <b>(Hacia CENTRO / AFUERA)</b>", r: "<b>Hacia Centro (18:00 hs):</b> Jackson, Constituyente, Canelones, Wilson Ferreira Aldunate. <br><b>Hacia Afuera:</b> 18 de Julio, Río Negro, San José, A. Lanza, Maldonado, Eduardo Acevedo a ruta." },
     "128": { n: "128, 199 <b>(Hacia CENTRO / POCITOS)</b>", r: "<b>Hacia Centro (18:00 hs):</b> Jackson, Canelones, Requena, Colonia, F. Crespo a ruta. <br><b>Hacia Pocitos (19:00 hs):</b> Arenal Grande, E Victor Haedo, J. Paulier, Maldonado, E. Acevedo a ruta." },
-    "17": { n: "17, 137, 409, 582 <b>(Hacia CENTRO)</b>", r: "<b>Hacia Centro (19:00 hs):</b> Minas, Rodó, Requena, Colonia a ruta. <br><b>409 (Hacia Centro):</b> Arenal Grande, E. Victor Haedo, J. Paullier, Maldonado, Constituyente, Canelones, Minas, Soriano a ruta." },
+    "17_137": { n: "17, 137 <b>(Hacia CENTRO)</b>", r: "<b>HORA 19:00 (al momento de la marcha):</b> Minas, Rodó, Requena, Colonia a ruta. <br><b>Ruta alternativa:</b> Arenal Grande, E. Victor Haedo, J. Paullier, Maldonado, Constituyente, Canelones, Magallanes a ruta." },
+    "409": { n: "409 <b>(Hacia CENTRO)</b>", r: "<b>HORA 19:00:</b> Arenal Grande, E. Victor Haedo, J. Paullier, Maldonado, Constituyente, Canelones, Minas, Soriano a ruta." },
+    "582": { n: "582 <b>(Hacia CENTRO)</b>", r: "<b>HORA 19:00:</b> Minas, Rodó, Requena, Colonia a ruta." },
     "427": { n: "141, 144, 427 <b>(Hacia CIUDADELA / UAM)</b>", r: "Rivera, Salterain, Bv. España, Canelones, Minas, Soriano a ruta." }
 };
 
