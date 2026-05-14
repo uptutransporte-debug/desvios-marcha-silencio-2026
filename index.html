@@ -23,17 +23,19 @@
 
         .container { padding: 15px; max-width: 800px; margin: auto; }
         
-        .banner-alerta { 
+        .doc-header { background: white; padding: 15px; border-bottom: 1px solid #ddd; margin-bottom: 10px; font-size: 13px; }
+        
+        .alerta-box { 
             background: #fff3cd; 
             border: 1px solid #ffeeba; 
             padding: 15px; 
             border-radius: 5px; 
             margin-bottom: 20px;
         }
-        .banner-alerta h2 { margin: 0 0 10px 0; font-size: 18px; color: #856404; text-align: center; }
+        .alerta-box h2 { margin: 0 0 10px 0; font-size: 18px; color: #856404; text-align: center; border-bottom: 1px solid #ffeeba; padding-bottom: 5px; }
 
         .card { background: white; padding: 20px; border-radius: 8px; box-shadow: 0 2px 10px rgba(0,0,0,0.1); }
-        label { display: block; margin-bottom: 10px; font-weight: bold; color: var(--azul-imm); }
+        label { display: block; margin-bottom: 10px; font-weight: bold; color: var(--azul-imm); font-size: 14px; }
         
         select { 
             width: 100%; 
@@ -42,6 +44,7 @@
             border: 2px solid var(--azul-imm); 
             border-radius: 5px; 
             margin-bottom: 25px;
+            background: white;
         }
 
         .resultado { display: none; }
@@ -50,10 +53,10 @@
         .suprimidas { background: #fdf2f2; border-left: 5px solid var(--rojo); }
         .provisorias { background: #f0fff4; border-left: 5px solid #28a745; }
         
-        .titulo-sec { font-weight: bold; text-transform: uppercase; font-size: 13px; margin-bottom: 8px; display: block; }
-        .contenido { font-size: 15px; line-height: 1.5; }
+        .titulo-sec { font-weight: bold; text-transform: uppercase; font-size: 12px; margin-bottom: 8px; display: block; color: #555; }
+        .contenido { font-size: 15px; line-height: 1.6; }
 
-        .footer { text-align: center; padding: 20px; font-size: 12px; color: #777; border-top: 1px solid #ddd; margin-top: 20px; }
+        .footer { text-align: center; padding: 20px; font-size: 12px; color: #777; border-top: 1px solid #ddd; margin-top: 20px; line-height: 1.5; }
     </style>
 </head>
 <body>
@@ -62,49 +65,56 @@
     <img src="https://montevideo.gub.uy/sites/default/files/logo-imm_0.png" alt="Intendencia de Montevideo">
     <div class="header-title">
         <h1>DEPARTAMENTO DE MOVILIDAD</h1>
-        <p>Unidad de Programación (UPTU)</p>
+        <p>DIVISIÓN TRANSPORTE / UPTU</p>
     </div>
 </div>
 
 <div class="container">
-    <div class="banner-alerta">
-        <h2>MARCHA DEL SILENCIO - 20 DE MAYO</h2>
+    <div class="doc-header">
+        <strong>Montevideo, 14 de Mayo de 2026</strong><br>
+        Motivo: MARCHA DEL SILENCIO (Av. 18 de Julio)
+    </div>
+
+    <div class="alerta-box">
+        <h2>PROGRAMACIÓN DE CORTES</h2>
         <div style="font-size: 14px; line-height: 1.6;">
-            <strong>17:00 hs:</strong> Corte en 18 de Julio (B. Amorín - Río Negro) e intersecciones Ejido y A. Lanza.<br>
-            <strong>18:00 hs:</strong> Corte total y Jackson esq. Guayabos.<br>
-            <strong>19:00 hs:</strong> Partida de la marcha hacia Plaza Cagancha.
+            <strong>17:00 hs:</strong> Corte 18 de Julio (B. Amorín - Río Negro) e intersec. Ejido y Aquiles Lanza.<br>
+            <strong>18:00 hs:</strong> Corte TOTAL del recorrido y J. J. Jackson esq. Guayabos.<br>
+            <strong>19:00 hs:</strong> Partida de la marcha desde Jackson hacia Pza. Cagancha.
         </div>
     </div>
 
     <div class="card">
-        <label for="lineaSelect">BUSCAR LÍNEA O CORREDOR:</label>
+        <label>SELECCIONE GRUPO DE LÍNEAS O SERVICIO:</label>
         <select id="lineaSelect" onchange="actualizar()">
-            <option value="">-- Seleccionar --</option>
+            <option value="">-- Buscar Línea --</option>
             <option value="100">100, 102, 103, 105, 109, 110, 113, D8 (al Centro)</option>
             <option value="21">21, 180, 187, 188, D9, D10, CE1 (a C. Vieja)</option>
-            <option value="afuera8">Hacia afuera (por Av. 8 de Octubre)</option>
-            <option value="afueraIt">Hacia afuera (por Av. Italia)</option>
-            <option value="afueraRi">Hacia afuera (por Av. Rivera)</option>
-            <option value="149_leyes">149, 522 (hacia P. Legislativo)</option>
-            <option value="149_pocitos">149, 522 (hacia Pocitos)</option>
-            <option value="128">128, 199 (hacia Pocitos/Pta. Carretas)</option>
-            <option value="17">17, 137, 409, 582 (al Centro/Afuera)</option>
-            <option value="104">104, 117 (Jackson / Afuera)</option>
+            <option value="afuera8">Hacia Av. 8 de Octubre (Afuera)</option>
+            <option value="afueraIt">Hacia Av. Italia (Afuera)</option>
+            <option value="afueraRi">Hacia Av. Rivera (Afuera)</option>
+            <option value="60">G, D11, 60, 62, 142 (al Centro - 18:00hs)</option>
+            <option value="149_leyes">149, 522 (hacia P. Legislativo - 17:00hs)</option>
+            <option value="149_pocitos">149, 522 (hacia Pocitos - 17:00hs)</option>
+            <option value="104">104, 117 (Jackson / Afuera - 18:00hs)</option>
+            <option value="128">128, 199 (Pocitos / Pta. Carretas)</option>
+            <option value="17">17, 137, 409, 582 (Operativo 19:00hs)</option>
+            <option value="427">141, 144 (Ciuddela), 427 (UAM)</option>
         </select>
 
         <div id="resultado" class="resultado">
             <div class="seccion ruta">
-                <span class="titulo-sec">Desvío de Recorrido</span>
+                <span class="titulo-sec">Ruta de Desvío Autorizada </span>
                 <div id="rutaTexto" class="contenido"></div>
             </div>
             
             <div class="seccion suprimidas">
-                <span class="titulo-sec">Paradas Suprimidas</span>
-                <div id="supTexto" class="contenido">Av. 18 de Julio (Tramos afectados según avance de marcha).</div>
+                <span class="titulo-sec">Paradas Suprimidas </span>
+                <div id="supTexto" class="contenido">Oficiales por Av. 18 de Julio desde Arenal Grande hasta Río Negro (según avance).</div>
             </div>
 
             <div class="seccion provisorias">
-                <span class="titulo-sec">Paradas Provisorias</span>
+                <span class="titulo-sec">Paradas Provisorias </span>
                 <div id="provTexto" class="contenido"></div>
             </div>
         </div>
@@ -112,8 +122,9 @@
 </div>
 
 <div class="footer">
-    Montevideo, 14 de Mayo de 2026 [cite: 4]<br>
-    Edificio Anexo Soriano 1426. Piso 5 [cite: 7]
+    <strong>Unidad de Programación del Transporte Urbano</strong><br>
+    Edificio Anexo Soriano 1426. Piso 5 CP. 11200. Montevideo, Uruguay [cite: 7]<br>
+    Tel: (5982) 1950 8702/8712 - stc@imm.gub.uy [cite: 7]
 </div>
 
 <script>
@@ -127,36 +138,44 @@ const info = {
         p: "Uruguay esq. Barrios Amorín, Uruguay esq. Ejido, Uruguay esq. Yi, Uruguay esq. Rondeau."
     },
     "afuera8": {
-        r: "San José, Río Branco, Mercedes, M. C. Martínez/Juan Paullier, Av. 18 de Julio a ruta.",
+        r: "San José, Río Branco, Mercedes, Martín C. Martínez / Juan Paullier, Av. 18 de Julio a ruta.",
         p: "Mercedes esq. Uruguay, Arenal Grande esq. Colonia, Colonia esq. Barbato."
     },
     "afueraIt": {
         r: "San José, A. Lanza, Maldonado, Barrios Amorín, Constituyente, Pablo de María, Av. 18 de Julio a ruta.",
-        p: "San José esq. Zelmar Michelini, Constituyente esq. Tacuarembó."
+        p: "San José esq. Aquiles Lanza, Constituyente esq. Tacuarembó, Rodó esq. Acevedo."
     },
     "afueraRi": {
         r: "San José, A. Lanza, Maldonado, Barrios Amorín, Constituyente, J. E. Rodó a ruta.",
-        p: "San José esq. Aquiles Lanza, J. E. Rodó esq. Magallanes."
+        p: "San José esq. Zelmar Michelini, J. E. Rodó esq. Magallanes."
+    },
+    "60": {
+        r: "Rivera, J. Requena, Colonia, J. H. y Obes, Av. 18 de Julio a ruta (Hora 18:00).",
+        p: "Colonia esq. Cuareim, Colonia esq. Rondeau, Colonia esq. Paraguay."
     },
     "149_leyes": {
-        r: "Ejido, Soriano, Paraguay, Mercedes, Ejido a ruta (desde 17:00 hs).",
+        r: "Ejido, Soriano, Paraguay, Mercedes, Ejido a ruta (Hora 17:00).",
         p: "Ejido esq. Colonia."
     },
     "149_pocitos": {
-        r: "Yaguarón, Av. Uruguay, Libertador, Río Negro, Maldonado, Aquiles Lanza a ruta (desde 17:00 hs).",
-        p: "Yaguarón esq. 18 de Julio, San José esq. Aquiles Lanza."
+        r: "Yaguarón, Av. Uruguay, Libertador, Río Negro, Maldonado, Aquiles Lanza a ruta (Hora 17:00).",
+        p: "Yaguarón esq. 18 de Julio."
+    },
+    "104": {
+        r: "Jackson, Constituyente, Canelones, Wilson Ferreira Aldunate. Afuera: 18 de Julio, Río Negro, San José, A. Lanza, Maldonado, Eduardo Acevedo a ruta.",
+        p: "San José esq. Aquiles Lanza, Guayabos esq. Gaboto."
     },
     "128": {
-        r: "Arenal Grande, E. Victor Haedo, J. Paullier, Maldonado, E. Acevedo a ruta (desde 19:00 hs).",
+        r: "Jackson, Canelones, Requena, Colonia, F. Crespo a ruta. Pocitos: Arenal Grande, E. Victor Haedo, J. Paullier, Maldonado, E. Acevedo a ruta (Hora 19:00).",
         p: "Arenal Grande esq. Colonia, Guayabos esq. Gaboto."
     },
     "17": {
-        r: "Minas, Rodó, Requena, Colonia a ruta (cuando pase la marcha).",
-        p: "Minas esq. Colonia, Magallanes esq. 18 de Julio."
+        r: "Al momento de la marcha: Minas, Rodó, Requena, Colonia a ruta. 409 Centro: Arenal Grande, Haedo, Paullier, Maldonado, Constituyente, Canelones, Minas, Soriano.",
+        p: "Minas esq. Colonia, Magallanes esq. 18 de Julio, Acevedo esq. Colonia."
     },
-    "104": {
-        r: "18 de Julio, Río Negro, San José, A. Lanza, Maldonado, Eduardo Acevedo a ruta.",
-        p: "San José esq. Zelmar Michelini, San José esq. Aquiles Lanza."
+    "427": {
+        r: "Rivera, Salterain, Bv. España, Canelones, Minas, Soriano a ruta.",
+        p: "J. E. Rodó esq. Magallanes, Constituyente esq. M. Trueba."
     }
 };
 
